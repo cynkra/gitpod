@@ -1,8 +1,11 @@
 # Error handling
 set -eux pipefail
 
+# Folder with base scripts
+LIB_FOLDER=$(dirname $0)/lib
+
 # Run base script
-sh $(pwd)/lib/base.sh
+sh $LIB_FOLDER/base.sh
 
 PROJECT=dm
 
@@ -17,12 +20,11 @@ cd $PROJECT
 ## Install devtools and R dependencies
 R -q -e 'pak::pak(); pak::pak(c("devtools", "languageserver", "styler"));'
 
-
 # Install MariaDB script
-sh $(pwd)/lib/mariadb.sh
+sh $LIB_FOLDER/mariadb.sh
 
 # Install Postgres script
-sh $(pwd)/lib/postgres.sh
+sh $LIB_FOLDER/postgres.sh
 
 ## Configure test database
 sudo sudo -u postgres createuser -s $USER

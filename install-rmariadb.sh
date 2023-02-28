@@ -1,8 +1,11 @@
 # Error handling
 set -eux pipefail
 
+# Folder with base scripts
+LIB_FOLDER=$(dirname $0)/lib
+
 # Run base script
-sh $(pwd)/lib/base.sh
+sh $LIB_FOLDER/base.sh
 
 PROJECT=RMariaDB 
 
@@ -18,4 +21,4 @@ cd $PROJECT
 R -q -e 'pak::pak(); pak::pak(c("devtools", "languageserver", "styler"));'
 
 # Install MariaDB script
-sh $(pwd)/lib/mariadb.sh
+sh $LIB_FOLDER/mariadb.sh

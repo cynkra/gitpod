@@ -1,8 +1,11 @@
 # Error handling
 set -eux pipefail
 
+# Folder with base scripts
+LIB_FOLDER=$(dirname $0)/lib
+
 # Run base script
-sh $(pwd)/lib/base.sh
+sh $LIB_FOLDER/base.sh
 
 PROJECT=igraph 
 
