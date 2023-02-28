@@ -9,7 +9,7 @@ curl -s https://raw.githubusercontent.com/krlmlr/scriptlets/master/bootstrap | s
 curl -Ls https://github.com/r-lib/rig/releases/download/latest/rig-linux-latest.tar.gz | sudo tar xz -C /usr/local
 # Set up R
 rig install
-rig system add-pak
+rig system add-pak --pak-version devel
 rig system make-links
 rig system setup-user-lib
 
