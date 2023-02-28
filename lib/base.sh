@@ -5,6 +5,10 @@ set -eux pipefail
 mv ~/.gitconfig ~/.gitconfig.gitpod
 curl -s https://raw.githubusercontent.com/krlmlr/scriptlets/master/bootstrap | sh
 
+curl -L -o /tmp/git-delta.deb https://github.com/dandavison/delta/releases/download/0.11.3/git-delta_0.11.3_amd64.deb
+sudo dpkg -i /tmp/git-delta.deb
+rm /tmp/git-delta.deb
+
 # Set up rig
 curl -Ls https://github.com/r-lib/rig/releases/download/latest/rig-linux-latest.tar.gz | sudo tar xz -C /usr/local
 # Set up R
