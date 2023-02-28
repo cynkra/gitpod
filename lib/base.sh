@@ -1,3 +1,6 @@
+# Error handling
+set -euxo pipefail
+
 # Set up rig
 curl -Ls https://github.com/r-lib/rig/releases/download/latest/rig-linux-latest.tar.gz | sudo tar xz -C /usr/local
 # Set up R
@@ -8,7 +11,8 @@ rig system setup-user-lib
 
 # Deps
 sudo apt update
-sudo apt install -y ccache cmake r-base libharfbuzz-dev libfribidi-dev
+sudo apt upgrade -y
+sudo apt install -y ccache cmake
 
 ## Set up ccache
 ln -s /usr/lib/ccache/* ~/bin/

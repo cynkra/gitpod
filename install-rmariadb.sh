@@ -1,3 +1,6 @@
+# Error handling
+set -euxo pipefail
+
 # Run base script
 sh $(pwd)/lib/base.sh
 
