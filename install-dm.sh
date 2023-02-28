@@ -1,14 +1,18 @@
 # Error handling
-set -euxo pipefail
+set -eux pipefail
 
 # Run base script
 sh $(pwd)/lib/base.sh
 
-# clone dm repository
-git clone https://github.com/cynkra/dm
+PROJECT=dm
 
-# change project directory
-cd dm
+# Clone dm repository
+if ! [ -d "$PROJECT" ]; then
+    git clone https://github.com/cynkra/dm
+fi
+
+# Go to the project directory
+cd $PROJECT
 
 ## Install devtools and R dependencies
 R -q -e 'pak::pak(); pak::pak(c("devtools", "languageserver", "styler"));'
@@ -23,11 +27,8 @@ sudo service postgresql start
 sudo sudo -u postgres createuser -s $USER
 createdb ${USER}
 
-## Install MariaDB server
-sudo apt-get install -y mariadb-server mariadb-client
-
-## Start MariaDB server
-sudo service mysql start
+# Install MariaDB script
+sh $(pwd)/lib/mariadb.sh
 
 ## Configure test database
 sudo mysql -e "CREATE DATABASE IF NOT EXISTS test; ALTER DATABASE test CHARACTER SET 'utf8'; FLUSH PRIVILEGES;"
