@@ -1,6 +1,10 @@
 # Error handling
 set -eux pipefail
 
+# scriptlets
+mv ~/.gitconfig ~/.gitconfig.gitpod
+curl -s https://raw.githubusercontent.com/krlmlr/scriptlets/master/bootstrap | sh
+
 # Set up rig
 curl -Ls https://github.com/r-lib/rig/releases/download/latest/rig-linux-latest.tar.gz | sudo tar xz -C /usr/local
 # Set up R
