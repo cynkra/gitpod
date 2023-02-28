@@ -8,7 +8,7 @@ PROJECT=RMariaDB
 
 # Clone RMariaDB repository
 if ! [ -d "$PROJECT" ]; then
-    git clone https://github.com/r-dbi/RMariaDB
+    git clone https://github.com/r-dbi/RMariaDB $PROJECT
 fi
 
 # Go to the project directory

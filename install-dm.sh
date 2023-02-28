@@ -8,7 +8,7 @@ PROJECT=dm
 
 # Clone dm repository
 if ! [ -d "$PROJECT" ]; then
-    git clone https://github.com/cynkra/dm
+    git clone https://github.com/cynkra/dm $PROJECT
 fi
 
 # Go to the project directory
