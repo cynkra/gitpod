@@ -1,0 +1,15 @@
+
+tasks:
+  - name: workspace
+vscode:
+  extensions:
+    - ms-vscode.cpptools
+    # needs reload of VS Code to be operational
+    - go2sh.cmake-integration-vscode
+    # buggy -- doesn't reliably interpret include files?
+    # observed behavior: repeated saving of src/CMakeLists.txt
+    # changes detaction of include files -- sometimes it works, sometimes it doesn't,
+    # with no detectable pattern
+    # - ms-vscode.cmake-tools
+    - EditorConfig.EditorConfig
+    - REditorSupport.r
