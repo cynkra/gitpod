@@ -1,6 +1,12 @@
 # Error handling
 set -eux pipefail
 
+# Fast path
+if [ ${USER} = "gitpod" -a -f ~/.gitpod/base ]; then
+  echo "$(basename $0): Already executed"
+  exit 0
+fi
+
 # scriptlets
 if ! [ -f ~/.gitconfig.gitpod ]; then
   mv ~/.gitconfig ~/.gitconfig.gitpod
@@ -47,3 +53,9 @@ R -q -e 'pak::pak(c("devtools", "languageserver", "styler"))'
 
 # Install radian
 sudo pip install radian
+
+# Indicate completion
+if [ ${USER} = "gitpod" ]; then
+  mkdir -p ~/.gitpod
+  touch ~/.gitpod/base
+fi
