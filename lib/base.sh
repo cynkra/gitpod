@@ -13,6 +13,11 @@ if ! [ -f ~/.gitconfig.gitpod ]; then
 fi
 curl -s https://raw.githubusercontent.com/krlmlr/scriptlets/master/bootstrap | sh
 
+# Deps
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y ccache cmake silversearcher-ag
+
 curl -L -o /tmp/git-delta.deb https://github.com/dandavison/delta/releases/download/0.11.3/git-delta_0.11.3_amd64.deb
 sudo dpkg -i /tmp/git-delta.deb
 rm /tmp/git-delta.deb
@@ -27,11 +32,6 @@ rig system setup-user-lib
 
 # Create bin directory
 mkdir -p /home/gitpod/bin
-
-# Deps
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y ccache cmake
 
 ## Set up ccache
 ln -fs /usr/lib/ccache/* ~/bin/
