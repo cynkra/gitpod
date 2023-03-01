@@ -17,5 +17,5 @@ fi
 # Go to the project directory
 cd $PROJECT/tools/rpkg
 
-## Install devtools and R dependencies
-R -q -e 'pak::pak(); pak::pak(c("devtools", "languageserver", "styler"));'
+# R dependencies
+R -q -e 'pak::pak()'

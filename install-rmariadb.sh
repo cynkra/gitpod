@@ -7,6 +7,9 @@ LIB_FOLDER=$(dirname $0)/lib
 # Run base script
 sh $LIB_FOLDER/base.sh
 
+# Install MariaDB script
+sh $LIB_FOLDER/mariadb.sh
+
 PROJECT=RMariaDB 
 
 # Clone RMariaDB repository
@@ -17,8 +20,8 @@ fi
 # Go to the project directory
 cd $PROJECT
 
-## Install devtools and R dependencies
+# Install R dependencies
 R -q -e 'pak::pak()'
 
-# Install MariaDB script
-sh $LIB_FOLDER/mariadb.sh
+# Compile
+R -q -e 'pkgload::load_all()'

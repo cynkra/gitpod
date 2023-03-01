@@ -17,5 +17,8 @@ fi
 # Go to the project directory
 cd $PROJECT
 
-## Install devtools and R dependencies
+# Install R dependencies
 R -q -e 'pak::pak()'
+
+# Compile
+R -q -e 'pkgload::load_all()'

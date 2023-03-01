@@ -25,10 +25,3 @@ sh $LIB_FOLDER/mariadb.sh
 
 # Install Postgres script
 sh $LIB_FOLDER/postgres.sh
-
-## Configure test database
-sudo sudo -u postgres createuser -s $USER
-createdb ${USER}
-
-## Configure test database
-sudo mysql -e "CREATE DATABASE IF NOT EXISTS test; ALTER DATABASE test CHARACTER SET 'utf8'; FLUSH PRIVILEGES;"
