@@ -45,7 +45,7 @@ echo 'export PATH='${HOME}'/bin:${PATH}' >> ~/.bashrc
 
 # Set up Makevars
 mkdir -p ~/.R
-echo "MAKEFLAGS = -j8\nCXXFLAGS = -O0 -g" > ~/.R/Makevars
+echo "MAKEFLAGS = -j4\nCXXFLAGS = -O0 -g" > ~/.R/Makevars
 
 # Install R packages
 echo 'options(repos = "https://packagemanager.rstudio.com/all/__linux__/'$(cat /etc/lsb-release | sed  -n '/DISTRIB_CODENAME=/ {s///;p}')'/latest")' >> ~/.Rprofile.gitpod
