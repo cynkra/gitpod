@@ -18,4 +18,4 @@ fi
 cd $PROJECT
 
 ## Install devtools and R dependencies
-R -q -e 'pak::pak(); pak::pak(c("devtools", "languageserver", "styler"));'
+R -q -e 'pak::pak()'
