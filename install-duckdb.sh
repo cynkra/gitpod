@@ -1,6 +1,9 @@
 # Error handling
 set -eux pipefail
 
+# Configure duckdb
+echo DUCKDB_R_DEBUG=1 >> ~/.Renviron
+
 # Folder with base scripts
 LIB_FOLDER=$(dirname $0)/lib
 
@@ -11,7 +14,7 @@ PROJECT=duckdb
 
 # Clone DuckDB repository
 if ! [ -d "$PROJECT" ]; then
-    git clone https://github.com/r-dbi/duckdb $PROJECT
+    git clone https://github.com/duckdb/duckdb $PROJECT
 fi
 
 # Go to the project directory
@@ -19,3 +22,6 @@ cd $PROJECT/tools/rpkg
 
 # R dependencies
 R -q -e 'pak::pak()'
+
+# Compile
+R -q -e 'pkgload::load_all()'
