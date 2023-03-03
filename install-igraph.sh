@@ -7,18 +7,5 @@ LIB_FOLDER=$(dirname $0)/lib
 # Run base script
 sh $LIB_FOLDER/base.sh
 
-PROJECT=igraph 
-
-# Clone RMariaDB repository
-if ! [ -d "$PROJECT" ]; then
-    git clone https://github.com/igraph/rigraph $PROJECT
-fi
-
-# Go to the project directory
-cd $PROJECT
-
-# Install R dependencies
-R -q -e 'pak::pak()'
-
-# Compile
-R -q -e 'pkgload::load_all()'
+# Clone igraph repository
+sh $LIB_FOLDER/repository.sh https://github.com/igraph/rigraph igraph
