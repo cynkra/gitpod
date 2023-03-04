@@ -49,7 +49,7 @@ echo "MAKEFLAGS = -j4\nCXXFLAGS = -O0 -g" > ~/.R/Makevars
 
 # Install R packages
 echo 'options(repos = "https://packagemanager.rstudio.com/all/__linux__/'$(cat /etc/lsb-release | sed  -n '/DISTRIB_CODENAME=/ {s///;p}')'/latest")' >> ~/.Rprofile.gitpod
-R -q -e 'pak::pak(c("devtools", "languageserver", "styler"))'
+R -q -e 'pak::pak(c("devtools", "languageserver", "styler", "reprex", "cpp11", "decor"))'
 
 # Install radian
 sudo pip install radian
