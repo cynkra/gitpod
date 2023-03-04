@@ -1,7 +1,7 @@
 .vscode/
-RMariaDB/
-igraph/
-dm/
-r-svn/
-duckdb/
-R-sb/
+
+# All directories (sub-repos)
+/*/
+
+# Explicitly keep lib directory
+!/lib
