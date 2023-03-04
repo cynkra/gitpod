@@ -11,4 +11,4 @@ sh $LIB_FOLDER/base.sh
 sh $LIB_FOLDER/mariadb.sh
 
 # Clone RMariaDB repository
-sh $LIB_FOLDER/repository.sh https://github.com/r-dbi/RMariaDB RMariaDB
+sh $LIB_FOLDER/repository.sh https://github.com/r-dbi/RMariaDB

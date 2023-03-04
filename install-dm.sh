@@ -8,7 +8,7 @@ LIB_FOLDER=$(dirname $0)/lib
 sh $LIB_FOLDER/base.sh
 
 # Clone dm repository
-sh $LIB_FOLDER/repository.sh https://github.com/cynkra/dm dm
+sh $LIB_FOLDER/repository.sh https://github.com/cynkra/dm
 
 # Install MariaDB script
 sh $LIB_FOLDER/mariadb.sh
