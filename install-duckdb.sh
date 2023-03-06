@@ -11,4 +11,4 @@ LIB_FOLDER=$(dirname $0)/lib
 sh $LIB_FOLDER/base.sh
 
 # Clone DuckDB repository
-sh $LIB_FOLDER/repository.sh https://github.com/duckdb/duckdb duckdb tools/rpkg
+sh $LIB_FOLDER/repository.sh duckdb/duckdb duckdb tools/rpkg
