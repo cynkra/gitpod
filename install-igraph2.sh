@@ -8,4 +8,4 @@ LIB_FOLDER=$(dirname $0)/lib
 sh $LIB_FOLDER/base.sh
 
 # Clone igraph repository
-sh $LIB_FOLDER/repository.sh Antonov548/igraph2
+sh $LIB_FOLDER/repository.sh Antonov548/rigraph2 igraph2
