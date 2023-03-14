@@ -8,3 +8,13 @@ curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list |
 
 sudo apt-get update -y
 sudo ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools unixodbc-dev
+
+sudo ln -s /opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.10.so.* /opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.so
+
+sudo cp dm/.github/odbc/odbc*.ini /etc/
+
+# Spin up Docker
+docker-compose up -d
+
+# Create database
+/opt/mssql-tools/bin/sqlcmd -U SA -P 'YourStrong!Passw0rd' -Q 'DROP DATABASE test; CREATE DATABASE test;'
