@@ -15,3 +15,6 @@ sh $LIB_FOLDER/mariadb.sh
 
 # Install Postgres script
 sh $LIB_FOLDER/postgres.sh
+
+# Install SQL Server client script
+sh $LIB_FOLDER/mssql.sh
