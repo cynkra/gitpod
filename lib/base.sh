@@ -42,7 +42,7 @@ mkdir -p ~/.R
 echo "MAKEFLAGS = -j4\nCXXFLAGS = -O0 -g" > ~/.R/Makevars
 
 # Set up R library directory
-mkdir -p ~/R
+rm -rf ~/R
 mkdir -p /workspace/gitpod/R
 ln -sf /workspace/gitpod/R ~/
 
