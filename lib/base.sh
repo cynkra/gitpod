@@ -42,6 +42,11 @@ echo 'export PATH='${HOME}'/bin:${PATH}' >> ~/.bashrc
 mkdir -p ~/.R
 echo "MAKEFLAGS = -j4\nCXXFLAGS = -O0 -g" > ~/.R/Makevars
 
+# Set up R library directory
+mkdir -p ~/R
+mkdir -p /workspace/gitpod/R
+ln -sf /workspace/gitpod/R ~/
+
 # Set up .Rprofile
 echo 'options(repos = "https://packagemanager.rstudio.com/all/__linux__/'$(cat /etc/lsb-release | sed  -n '/DISTRIB_CODENAME=/ {s///;p}')'/latest")' >> ~/.Rprofile.gitpod
 
