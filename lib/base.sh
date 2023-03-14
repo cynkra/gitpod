@@ -24,11 +24,6 @@ rm /tmp/git-delta.deb
 
 # Set up rig
 curl -Ls https://github.com/r-lib/rig/releases/download/latest/rig-linux-latest.tar.gz | sudo tar xz -C /usr/local
-# Set up R
-rig install
-rig system add-pak --pak-version devel
-rig system make-links
-rig system setup-user-lib
 
 # Create bin directory
 mkdir -p /home/gitpod/bin
@@ -47,9 +42,11 @@ echo 'export PATH='${HOME}'/bin:${PATH}' >> ~/.bashrc
 mkdir -p ~/.R
 echo "MAKEFLAGS = -j4\nCXXFLAGS = -O0 -g" > ~/.R/Makevars
 
-# Install R packages
+# Set up .Rprofile
 echo 'options(repos = "https://packagemanager.rstudio.com/all/__linux__/'$(cat /etc/lsb-release | sed  -n '/DISTRIB_CODENAME=/ {s///;p}')'/latest")' >> ~/.Rprofile.gitpod
-R -q -e 'pak::pak(c("devtools", "languageserver", "styler", "reprex", "cpp11", "decor", "krlmlr/lazytest"))'
+
+# Install R and packages
+sh lib/r.sh
 
 # Install radian
 sudo pip install radian
