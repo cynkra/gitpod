@@ -39,9 +39,11 @@ mkdir -p ~/.R
 echo "MAKEFLAGS = -j4\nCXXFLAGS = -O0 -g" > ~/.R/Makevars
 
 # Set up R library directory
-rm -rf ~/R
-mkdir -p /workspace/gitpod/R
-ln -sf /workspace/gitpod/R ~/
+if [ ${USER} = "gitpod" ]; then
+  rm -rf ~/R
+  mkdir -p /workspace/gitpod/R
+  ln -sf /workspace/gitpod/R ~/
+fi
 
 # Set up .Rprofile
 echo 'options(repos = "https://packagemanager.rstudio.com/all/__linux__/'$(cat /etc/lsb-release | sed  -n '/DISTRIB_CODENAME=/ {s///;p}')'/latest")' >> ~/.Rprofile.gitpod
