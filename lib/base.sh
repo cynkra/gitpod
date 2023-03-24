@@ -24,9 +24,6 @@ rm /tmp/git-delta.deb
 # Set up rig
 curl -Ls https://github.com/r-lib/rig/releases/download/latest/rig-linux-latest.tar.gz | sudo tar xz -C /usr/local
 
-# Create bin directory
-mkdir -p /home/gitpod/bin
-
 ## Set up ccache
 ln -fs /usr/lib/ccache/* ~/bin/
 
