@@ -3,5 +3,6 @@
 # All directories (sub-repos)
 /*/
 
-# Explicitly keep lib directory
+# Explicitly keep lib and .github directory
 !/lib
+!/.github

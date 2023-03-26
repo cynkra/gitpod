@@ -8,7 +8,7 @@ if [ ${USER} = "gitpod" -a -f ~/.gitpod/base ]; then
 fi
 
 # scriptlets
-if ! [ -f ~/.gitconfig.gitpod ]; then
+if ! [ -f ~/.gitconfig.gitpod ] && [ -f ~/.gitconfig]; then
   mv ~/.gitconfig ~/.gitconfig.gitpod
 fi
 curl -s https://raw.githubusercontent.com/krlmlr/scriptlets/master/bootstrap | sh
@@ -23,9 +23,6 @@ rm /tmp/git-delta.deb
 
 # Set up rig
 curl -Ls https://github.com/r-lib/rig/releases/download/latest/rig-linux-latest.tar.gz | sudo tar xz -C /usr/local
-
-# Create bin directory
-mkdir -p /home/gitpod/bin
 
 ## Set up ccache
 ln -fs /usr/lib/ccache/* ~/bin/
@@ -42,9 +39,11 @@ mkdir -p ~/.R
 echo "MAKEFLAGS = -j4\nCXXFLAGS = -O0 -g" > ~/.R/Makevars
 
 # Set up R library directory
-rm -rf ~/R
-mkdir -p /workspace/gitpod/R
-ln -sf /workspace/gitpod/R ~/
+if [ ${USER} = "gitpod" ]; then
+  rm -rf ~/R
+  mkdir -p /workspace/gitpod/R
+  ln -sf /workspace/gitpod/R ~/
+fi
 
 # Set up .Rprofile
 echo 'options(repos = "https://packagemanager.rstudio.com/all/__linux__/'$(cat /etc/lsb-release | sed  -n '/DISTRIB_CODENAME=/ {s///;p}')'/latest")' >> ~/.Rprofile.gitpod
