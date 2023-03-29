@@ -15,7 +15,7 @@ curl -s https://raw.githubusercontent.com/krlmlr/scriptlets/master/bootstrap | s
 
 # Deps
 sudo apt update
-sudo apt install -y ccache cmake silversearcher-ag
+sudo apt install -y ccache cmake silversearcher-ag ninja-build
 
 curl -L -o /tmp/git-delta.deb https://github.com/dandavison/delta/releases/download/0.11.3/git-delta_0.11.3_amd64.deb
 sudo dpkg -i /tmp/git-delta.deb

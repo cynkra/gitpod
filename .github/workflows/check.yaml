@@ -9,7 +9,7 @@ on:
       - master
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.head_ref || '' }}-${{ github.base_ref || '' }}
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.head_ref || github.sha }}-${{ github.base_ref || '' }}
   cancel-in-progress: true
 
 name: rcc
@@ -18,12 +18,20 @@ jobs:
   test-install-scripts:
     runs-on: ubuntu-latest
 
-    name: "Installation scripts tests"
+    strategy:
+      matrix:
+        package:
+          - dm
+          - duckdb
+          - igraph
+          - igraph2
+          - r-sb
+          - rmariadb 
+          - rpostgres
 
     steps:
       - name: Checkout 
         uses: actions/checkout@v3
         
-      - name: Install mariadb
-        run: sh ./install-rmariadb.sh
-
+      - name: "Install ${{ matrix.package }}"
+        run: sh ./install-${{ matrix.package }}.sh
