@@ -7,4 +7,4 @@ set -eux pipefail
 rig install --pak-version devel ${version}
 rig system setup-user-lib
 
-R-${version} -q -e 'pak::pak(c("devtools", "languageserver", "styler", "reprex", "cpp11", "decor", "krlmlr/lazytest"))'
+R-${version} -q -e 'pak::pak(c("devtools", "languageserver", "styler", "reprex", "cpp11", "decor", "startup", "krlmlr/lazytest"))'
