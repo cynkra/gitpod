@@ -8,7 +8,7 @@ if [ ${USER} = "gitpod" -a -f ~/.gitpod/base ]; then
 fi
 
 # scriptlets
-if ! [ -f ~/.gitconfig.gitpod ] && [ -f ~/.gitconfig]; then
+if ! [ -f ~/.gitconfig.gitpod ] && [ -f ~/.gitconfig ]; then
   mv ~/.gitconfig ~/.gitconfig.gitpod
 fi
 curl -s https://raw.githubusercontent.com/krlmlr/scriptlets/master/bootstrap | sh
