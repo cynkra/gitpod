@@ -1,7 +1,3 @@
-ports:
-  - port: 1433
-    onOpen: ignore
-
 vscode:
   extensions:
     - ms-vscode.cpptools
