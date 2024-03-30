@@ -7,14 +7,16 @@ project=${2:-$repo_name}
 
 # Clone repository
 if ! [ -d "$project" ]; then
-    git clone ${4:-https://github.com/}$1 $project
+  git clone ${4:-https://github.com/}$1 $project
 fi
 
 # Go to the project directory
 cd $project/$3
 
-## Install devtools and R dependencies
-R -q -e 'pak::pak()'
+if [ -f "DESCRIPTION" ]; then
+  ## Install devtools and R dependencies
+  R -q -e 'pak::pak()'
 
-# Compile
-R -q -e 'pkgload::load_all()'
+  # Compile
+  R -q -e 'pkgload::load_all()'
+fi
