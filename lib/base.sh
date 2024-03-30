@@ -51,6 +51,9 @@ echo 'options(repos = "https://packagemanager.rstudio.com/all/__linux__/'$(cat /
 # Install R and packages
 sh lib/r.sh
 
+# Install gh
+sh lib/gh.sh
+
 # Install radian
 sudo pip install radian
 
